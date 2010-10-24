@@ -14,6 +14,7 @@ class Battle
 
 
         button "Attack", :top => 50, :left => 70 do
+<<<<<<< HEAD
 	  if refChance >= 1 && refChance <= 3
 	    damage = i.attack
             alert "The unicorn reflected your attack dealing " + damage.to_s + " damage!"
@@ -65,6 +66,19 @@ alert(@unicorn.hp.to_s)
 	end
             
 	  end
+=======
+	      if refChance >= 1 && refChance <= 3
+	        damage = i.attack
+          alert "The unicorn reflected your attack dealing " + damage.to_s + " damage!"
+          i.hp -= damage
+	      else
+	        damage = i.attack
+	        alert i.class.to_s + " deals " + damage.to_s + " damage."
+	        @unicorn.hp -= damage
+          alert("The unicorn still has " + @unicorn.hp.to_s + " HP.")    
+          alert("You still have " + @player.hp.to_s + "HP.")              
+	      end
+>>>>>>> version 1.0
 
         damage = @unicorn.attack
         alert "The unicorn deals " + damage.to_s + " to you."
@@ -73,6 +87,7 @@ alert(@unicorn.hp.to_s)
         if @unicorn.hp <= 0 
           Win.new self, true
         end
+<<<<<<< HEAD
         
         button "Special", :top => 150, :left => 70 do
           special_sound
@@ -91,6 +106,11 @@ alert(@unicorn.hp.to_s)
         end 
 
 
+=======
+	      if @player.hp <= 0
+	        Win.new self, false
+	      end
+>>>>>>> version 1.0
       end
         
       button "Special", :top => 150, :left => 70 do
@@ -105,6 +125,16 @@ alert(@unicorn.hp.to_s)
           Win.new self, false
         end
       end
+<<<<<<< HEAD
+      @war_image = image @player.image_big, :top=> 365, :left => 188
+      @health_image = image "static/health100.gif", :top=> 550, :left =>205
+      @uni_image = image "static/bigUnicorn1.gif", :top => 330, :left => 890
+      @health2_image = image "static/health100.gif", :top=> 550, :left =>905
+      @charlie_image = image "static/charlie.gif", :top=> 575, :left =>901
+      #@desert_image = image "static/desert.gif", :top=> 575, :left =>901
+     end	
+=======
+>>>>>>> version 1.0
     end
 
     @screen.each do |b| 

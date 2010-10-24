@@ -28,11 +28,7 @@ Shoes.app :height => 730, :width => 1296 do
   (0..6).each  {|i| @board[460 + i] = "static/wall_t_1.gif"}
   (0..3).each  {|i| @board[316 + i * 36] = "static/wall_l_1.gif"}
 
-  #board[357] = "static/unicorn.gif"
-
   @board[352] = "static/sandweird.gif"
-
-  #board[360] = "static/Warrior.gif"
 
   @image_array = []
 
@@ -60,7 +56,7 @@ Shoes.app :height => 730, :width => 1296 do
  end
 
   def move_player_right
-    if @board[(@player_top + (@player_left/36)) + 1]=="static/sand_1.gif" || @board[(@player_top + (@player_left/36)) + 1]=="static/sandweird.gif"
+    if @board[(@player_top + (@player_left/36)) + 1]=="static/sand_1.gif" || @board[(@player_top + (@player_left/36)) + 1]=="static/sandweird.gif"    
     @player_left += 36
     @player_image.style :left => @player_left
     end
@@ -75,10 +71,10 @@ Shoes.app :height => 730, :width => 1296 do
 
   #animate 30 do
 
-    #input = get_input
-    #update(input)
+   #input = get_input
+   # update(input)
 
-  #end
+#  end
 
 #  def get_input
     keypress do |k|
@@ -89,7 +85,34 @@ Shoes.app :height => 730, :width => 1296 do
         when 'd' then move_player_right
 	else ""
       end
+     if @player_top == 324 and @player_left == 1188
+	battle
+      end
     end
  # end
+     
+   
+    
+
+    def battle
+      window :height => 730, :width => 1305 do 
+        @screen = []
+	@screen << "static/combatbox.gif"
+	432.times { @screen << "static/sand_1.gif" }
+	button "Attack", :top => 50, :left => 70 do
+	end
+	button "Special", :top => 150, :left => 70 do
+	end
+	para "HOLY FUCKING SHIT", :top => 200, :left => 200 do
+	end
+	@screen.each do |b| 
+	    image b
+	end
+	@war_image = image "static/bigWarrior.gif", :top=> 324, :left => 188
+	@uni_image = image "static/bigUnicorn.gif", :top=> 524, :left => 588
+	
+      end
+    
+    end
 
 end

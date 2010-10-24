@@ -103,8 +103,6 @@ Shoes.app :height => 730, :width => 1296 do
 	end
 	button "Special", :top => 150, :left => 70 do
 	end
-	para "HOLY FUCKING SHIT", :top => 200, :left => 200 do
-	end
 	@screen.each do |b| 
 	    image b
 	end
@@ -112,7 +110,7 @@ Shoes.app :height => 730, :width => 1296 do
 	@uni_image = image "static/bigUnicorn.gif", :top=> 524, :left => 588
 	
       end
-    
+    #comment
     end
 
 end

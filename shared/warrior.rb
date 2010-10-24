@@ -4,7 +4,7 @@ class Warrior < Player
     opts[:str] ||= 10
     opts[:const] ||= 10
     opts[:arm] ||= 10
-    opts[:image_path] = "static/warrior_front.gif"
+    opts[:image_base] = "static/warrior_"
     
     super(opts)
   end

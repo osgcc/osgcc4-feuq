@@ -2,7 +2,7 @@ class Wizard < Player
 
   def initialize(opts={})
     opts[:mp] ||= 10
-    opts[:image_path] = "static/wizard_front.gif"
+    opts[:image_base] = "static/wizard_"
     super(opts)
   end
 

@@ -23,7 +23,7 @@ class Battle
       @screen.each do |b| 
         image b
       end
-      @war_image = image "static/bigWarrior.gif", :top=> 365, :left => 188
+      @war_image = image @player.image_big, :top=> 365, :left => 188
       @health_image = image "static/health100.gif", :top=> 550, :left =>205
       @uni_image = image "static/bigUnicorn1.gif", :top => 330, :left => 890
       @health_image = image "static/health100.gif", :top=> 550, :left =>905

@@ -6,7 +6,7 @@ class WhiteMage < Player
     opts[:arm] ||= 3
     opts[:mp] ||= 7
     opts[:int] ||= 10
-    opts[:image_path] = "static/white_mage_front.gif"    
+    opts[:image_base] = "static/white_mage_"    
     super(opts)
   end
 

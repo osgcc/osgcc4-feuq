@@ -2,23 +2,30 @@ class Battle
   def initialize slot
     slot.replace do
       @unicorn = Unicorn.new
-      @combatant = [@player, @unicorn]  
+      @combatant = [@player]  
       @screen = []
       @screen << "static/combatbox.gif"
       @screen << "static/desert.gif"
       #432.times { @screen << "static/sand_1.gif" }
-      turn = true
+      
       @combatant.each do |i|
-        if turn
+        
           button "Attack", :top => 50, :left => 70 do
-            alert "" + @player.class.to_s + " deals " + @player.str.to_s + " damage."
-            alert @unicorn.hp.to_s
-            @unicorn.hp -= @player.str
-	    alert @unicorn.hp.to_s
+	   
+	    damage = i.attack
+            alert "" + i.class.to_s + " deals " + damage.to_s + " damage."
+            @unicorn.hp -= damage
+	    
           end
           button "Special", :top => 150, :left => 70 do
+            
+		damage = i.specAtk
+                @unicorn.hp -= damage
+                
+	    
           end
-        end
+	 
+        
       end
       @screen.each do |b| 
         image b

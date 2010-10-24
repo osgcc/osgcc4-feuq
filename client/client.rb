@@ -6,6 +6,7 @@ require "httparty"
 require 'json'
 require './picker'
 require '../shared/player'
+require '../shared/unicorn'
 require './dungeon'
 require './battle' 
 

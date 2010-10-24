@@ -6,10 +6,12 @@ require "httparty"
 require 'json'
 
 Shoes.app :height => 730, :width => 1296 do
-
+	
   require '../shared/player'
+  require '../shared/unicorn'
 
   @player = Player.new
+  @unicorn = Unicorn.new
 
   @board = []
 
@@ -93,15 +95,24 @@ Shoes.app :height => 730, :width => 1296 do
     
 
     def battle
-      window :height => 730, :width => 1305 do 
+      window :height => 730, :width => 1305 do
+        @combatant = [@player, @unicorn]  
         @screen = []
 	@screen << "static/combatbox.gif"
-@screen << "static/desert.gif"
+        @screen << "static/desert.gif"
 	#432.times { @screen << "static/sand_1.gif" }
-	button "Attack", :top => 50, :left => 70 do
+        turn = true
+    @combatant.each do |i|
+      if turn
+        button "Attack", :top => 50, :left => 70 do
+        #alert "" + @player + " deals " + @player.str + " damage."
 	end
+
 	button "Special", :top => 150, :left => 70 do
-	end
+	
+        end
+      end
+    end
 	@screen.each do |b| 
 	    image b
 	end
@@ -113,7 +124,7 @@ Shoes.app :height => 730, :width => 1296 do
 	#@desert_image = image "static/desert.gif", :top=> 575, :left =>901
 	
       end
-    #comment
+    
     end
 
 end

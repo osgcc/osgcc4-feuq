@@ -1,5 +1,2 @@
-require 'player'
+require_relative './player'
 
-class World
-
-end

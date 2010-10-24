@@ -1,6 +1,9 @@
 class Battle
   def initialize slot
     slot.replace do
+      
+      cheeky_drat
+      
       @unicorn = Unicorn.new
       @combatant = [@player, @unicorn]  
       @screen = []
@@ -9,10 +12,13 @@ class Battle
       #432.times { @screen << "static/sand_1.gif" }
       turn = true
       @combatant.each do |i|
+        cheeky_drat
+        
         if turn
           button "Attack", :top => 50, :left => 70 do
             alert "" + @player.to_s + " deals " + @player.str.to_s + " damage."
             alert @unicorn.hp.to_s
+            attack_sound
             @unicorn.hp -= @player.str
 	    alert @unicorn.hp.to_s
           end

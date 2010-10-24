@@ -4,6 +4,8 @@ end
 
 require "httparty"
 require 'json'
+require 'bloops'
+require './sounds'
 require './picker'
 require '../shared/player'
 require '../shared/unicorn'

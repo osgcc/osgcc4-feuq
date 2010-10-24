@@ -12,7 +12,6 @@ class Battle
       #432.times { @screen << "static/sand_1.gif" }
       
       @combatant.each do |i|
-        cheeky_drat
 
         button "Attack", :top => 50, :left => 70 do
           attack_sound

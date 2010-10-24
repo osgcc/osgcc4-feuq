@@ -5,26 +5,27 @@ class Battle
       cheeky_drat
       
       @unicorn = Unicorn.new
-      @combatant = [@player, @unicorn]  
+      @combatant = [@player]  
       @screen = []
       @screen << "static/combatbox.gif"
       @screen << "static/desert.gif"
       #432.times { @screen << "static/sand_1.gif" }
-      turn = true
+      
       @combatant.each do |i|
         cheeky_drat
-        
-        if turn
-          button "Attack", :top => 50, :left => 70 do
-            alert "" + @player.to_s + " deals " + @player.str.to_s + " damage."
-            alert @unicorn.hp.to_s
-            attack_sound
-            @unicorn.hp -= @player.str
-	    alert @unicorn.hp.to_s
-          end
-          button "Special", :top => 150, :left => 70 do
-          end
+
+        button "Attack", :top => 50, :left => 70 do
+          attack_sound
+          damage = i.attack
+          alert "" + i.class.to_s + " deals " + damage.to_s + " damage."
+          @unicorn.hp -= damage
         end
+        
+        button "Special", :top => 150, :left => 70 do
+          damage = i.specAtk
+          @unicorn.hp -= damage
+        end
+        
       end
       @screen.each do |b| 
         image b
@@ -38,4 +39,7 @@ class Battle
 
     end
   end
+
+
+
 end

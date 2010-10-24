@@ -42,6 +42,26 @@ alert(@unicorn.hp.to_s)
 	else
 	   @health2_image = image "static/health90.gif", :top=> 550, :left =>905
 	end
+
+	if @player.hp <= 15
+	   @health2_image = image "static/health10.gif", :top=> 550, :left =>205
+        elsif @player.hp <= 25
+	   @health2_image = image "static/health20.gif", :top=> 550, :left =>205
+	elsif @player.hp <= 35
+	   @health2_image = image "static/health30.gif", :top=> 550, :left =>205
+	elsif @player.hp <= 45
+	   @health2_image = image "static/health40.gif", :top=> 550, :left =>205
+	elsif @player.hp <= 55
+	   @health2_image = image "static/health50.gif", :top=> 550, :left =>205
+ 	elsif @player.hp <= 65 
+ 	   @health2_image = image "static/health60.gif", :top=> 550, :left =>205
+	elsif @player.hp <= 75
+	   @health2_image = image "static/health70.gif", :top=> 550, :left =>205
+	elsif @player.hp <= 85 
+	   @health2_image = image "static/health80.gif", :top=> 550, :left =>205
+	else
+	   @health2_image = image "static/health90.gif", :top=> 550, :left =>205
+	end
             
 	  end
 

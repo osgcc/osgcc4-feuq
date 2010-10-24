@@ -10,7 +10,8 @@ class Battle
       refChance = 0
       @combatant.each do |i|
         refChance = rand(99)+1
-       
+
+
         button "Attack", :top => 50, :left => 70 do
 	  if refChance >= 1 && refChance <= 3
 	    damage = i.attack
@@ -21,6 +22,26 @@ class Battle
 	    alert i.class.to_s + " deals " + damage.to_s + " damage."
 	    @unicorn.hp -= damage
 alert(@unicorn.hp.to_s)
+
+	if @unicorn.hp <= 15
+	   @health2_image = image "static/health10.gif", :top=> 550, :left =>905
+        elsif @unicorn.hp <= 25
+	   @health2_image = image "static/health20.gif", :top=> 550, :left =>905
+	elsif @unicorn.hp <= 35
+	   @health2_image = image "static/health30.gif", :top=> 550, :left =>905
+	elsif @unicorn.hp <= 45
+	   @health2_image = image "static/health40.gif", :top=> 550, :left =>905
+	elsif @unicorn.hp <= 55
+	   @health2_image = image "static/health50.gif", :top=> 550, :left =>905
+ 	elsif @unicorn.hp <= 65 
+ 	   @health2_image = image "static/health60.gif", :top=> 550, :left =>905
+	elsif @unicorn.hp <= 75
+	   @health2_image = image "static/health70.gif", :top=> 550, :left =>905
+	elsif @unicorn.hp <= 85 
+	   @health2_image = image "static/health80.gif", :top=> 550, :left =>905
+	else
+	   @health2_image = image "static/health90.gif", :top=> 550, :left =>905
+	end
             
 	  end
 
@@ -52,9 +73,6 @@ alert(@unicorn.hp.to_s)
 	end
         end 
 
-        
-       
-
 
       end
 
@@ -65,7 +83,7 @@ alert(@unicorn.hp.to_s)
       @war_image = image @player.image_big, :top=> 365, :left => 188
       @health_image = image "static/health100.gif", :top=> 550, :left =>205
       @uni_image = image "static/bigUnicorn1.gif", :top => 330, :left => 890
-      @health_image = image "static/health100.gif", :top=> 550, :left =>905
+      @health2_image = image "static/health100.gif", :top=> 550, :left =>905
       @charlie_image = image "static/charlie.gif", :top=> 575, :left =>901
       #@desert_image = image "static/desert.gif", :top=> 575, :left =>901
      end	

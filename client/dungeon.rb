@@ -1,19 +1,19 @@
 class Dungeon
   
-  def initialize slot, player_class
+  def initialize slot, player_class, player_name
     slot.replace do
       #@player = Player.new
       
       #i can't get const_get working, so...
       case player_class
       when :wizard
-        @player = Wizard.new
+        @player = Wizard.new :name => player_name
       when :warrior
-        @player = Warrior.new
+        @player = Warrior.new :name => player_name
       when :rogue
-        @player = Rogue.new
+        @player = Rogue.new :name => player_name
       when :white_mage  
-        @player = WhiteMage.new
+        @player = WhiteMage.new :name => player_name
       else
         alert("OH NOEES!")
       end

@@ -18,12 +18,18 @@ class Battle
           damage = i.attack
           alert "" + i.class.to_s + " deals " + damage.to_s + " damage."
           @unicorn.hp -= damage
+          if @unicorn.hp <= 0
+            Win.new self, true
+          end
         end
         
         button "Special", :top => 150, :left => 70 do
           special_sound
           damage = i.specAtk
           @unicorn.hp -= damage
+          if @unicorn.hp <= 0
+            Win.new self, true
+          end
         end
         
       end

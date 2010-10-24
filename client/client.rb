@@ -10,8 +10,6 @@ Shoes.app :height => 730, :width => 1296 do
   require '../shared/player'
 
   @player = Player.new
-  
-  @player.y_pos = 360
 
   @board = []
 
@@ -36,36 +34,36 @@ Shoes.app :height => 730, :width => 1296 do
     image b
   end
   @uni_image = image "static/unicorn.gif", :top=> 324, :left => 1188
-  @player_top = 360
-  @player_left = 0
-  @player_image = image "static/Warrior.gif", :top => 360, :left => 0
+  @player.y_pos= 360
+  @player.x_pos = 0
+  @player_image = image "static/Warrior.gif", :top => @player.y_pos, :left => @player.x_pos
 
   def move_player_up
-    if @board[(@player_top + (@player_left/36)) - 36]=="static/sand_1.gif" 
-    @player_top -= 36
-    @player_image.style :top => @player_top
+    if @board[(@player.y_pos + (@player.x_pos/36)) - 36]=="static/sand_1.gif" 
+    @player.y_pos -= 36
+    @player_image.style :top => @player.y_pos
     end
     
   end
 
   def move_player_down
-    if @board[(@player_top + (@player_left/36)) + 36]=="static/sand_1.gif"
-    @player_top += 36
-    @player_image.style :top => @player_top
+    if @board[(@player.y_pos + (@player.x_pos/36)) + 36]=="static/sand_1.gif"
+    @player.y_pos += 36
+    @player_image.style :top => @player.y_pos
     end
  end
 
   def move_player_right
-    if @board[(@player_top + (@player_left/36)) + 1]=="static/sand_1.gif" || @board[(@player_top + (@player_left/36)) + 1]=="static/sandweird.gif"    
-    @player_left += 36
-    @player_image.style :left => @player_left
+    if @board[(@player.y_pos + (@player.x_pos/36)) + 1]=="static/sand_1.gif" || @board[(@player.y_pos + (@player.x_pos/36)) + 1]=="static/sandweird.gif"    
+    @player.x_pos += 36
+    @player_image.style :left => @player.x_pos
     end
   end
 
   def move_player_left
-    if @board[(@player_top + (@player_left/36)) - 1]=="static/sand_1.gif" || @board[(@player_top + (@player_left/36)) - 1]=="static/sandweird.gif" 
-    @player_left -= 36
-    @player_image.style :left => @player_left
+    if @board[(@player.y_pos + (@player.x_pos/36)) - 1]=="static/sand_1.gif" || @board[(@player.y_pos + (@player.x_pos/36)) - 1]=="static/sandweird.gif" 
+    @player.x_pos -= 36
+    @player_image.style :left => @player.x_pos
     end
   end
 
@@ -85,7 +83,7 @@ Shoes.app :height => 730, :width => 1296 do
         when 'd' then move_player_right
 	else ""
       end
-     if @player_top == 324 and @player_left == 1188	
+     if @player.y_pos == 324 and @player.x_pos == 1188	
 	battle
       end
     end

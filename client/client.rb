@@ -6,12 +6,12 @@ require "httparty"
 require 'json'
 
 Shoes.app :height => 730, :width => 1440 do
-  #@text = para "Hit me!"
-  #button "hit the server" do
-  # response = HTTParty.get('http://localhost:9292/update')
-  # parsed_response = JSON.parse(response.body)
-  # @text.text = parsed_response["success"]
-  #end
+
+  require '../shared/player'
+
+  @player = Player.new
+  
+  @player.y_pos = 360
 
   board = []
 
@@ -27,19 +27,62 @@ Shoes.app :height => 730, :width => 1440 do
   (0..6).each  {|i| board[272 + i] = "static/wall_t_1.gif"}
   (0..6).each  {|i| board[552 + i] = "static/wall_t_1.gif"}
   (0..5).each  {|i| board[312 + i * 40] = "static/wall_l_1.gif"}
+
+  board[436] = "static/unicorn.gif"
+
   board[432] = "static/sandweird.gif"
 
-  board[360] = "static/Warrior.gif"
+  #board[360] = "static/Warrior.gif"
 
- # 760.times {image "static/sand_1.gif"}
+  @image_array = []
 
-  board.each {|b| image b }
+  board.each do |b| 
+    image b
+  end
 
-  # keypress do |k|
-  #   case k
-  #     when 'w' then alert("omg w")
-  #   end
-  # end
+  @player_top = 320
+  @player_left = 0
+  @player_image = image "static/Warrior.gif", :top => 320, :left => 0
 
+  def move_player_up
+    #player.y_pos -= 36
+    #player_image.top -= 36
+    @player_top -= 36
+   @player_image.style :top => @player_top
+  end
+
+  def move_player_down
+    @player_top += 36
+    @player_image.style :top => @player_top
+ end
+
+  def move_player_right
+    @player_left += 36
+    @player_image.style :left => @player_left
+  end
+
+  def move_player_left
+    @player_left -= 36
+    @player_image.style :left => @player_left
+  end
+
+  #animate 30 do
+
+    #input = get_input
+    #update(input)
+
+  #end
+
+#  def get_input
+    keypress do |k|
+      case k
+        when 'w' then move_player_up
+        when 'a' then move_player_left
+        when 's' then move_player_down
+        when 'd' then move_player_right
+	else ""
+      end
+    end
+ # end
 
 end

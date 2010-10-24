@@ -1,5 +1,5 @@
 class Player
-	attr_accessor :hp, :mp, :int, :const, :str, :arm
+	attr_accessor :hp, :mp, :int, :const, :str, :arm, :y_pos, :image
 
   def initialize(opts={})
     opts[:hp] ||= 10
@@ -15,8 +15,10 @@ class Player
     self.const = opts[:const]
     self.str = opts[:str]
     self.arm = opts[:arm]
-    
+
+    #self.image = image "static/warrior.gif"
   end
+
 
 end
 

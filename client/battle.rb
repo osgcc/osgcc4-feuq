@@ -11,7 +11,7 @@ class Battle
       @combatant.each do |i|
         if turn
           button "Attack", :top => 50, :left => 70 do
-            alert "" + @player.to_s + " deals " + @player.str.to_s + " damage."
+            alert "" + @player.class.to_s + " deals " + @player.str.to_s + " damage."
             alert @unicorn.hp.to_s
             @unicorn.hp -= @player.str
 	    alert @unicorn.hp.to_s
@@ -32,4 +32,7 @@ class Battle
 
     end
   end
+
+
+
 end

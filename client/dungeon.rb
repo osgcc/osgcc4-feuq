@@ -1,10 +1,24 @@
 class Dungeon
   
-  def initialize slot
+  def initialize slot, player_class
     slot.replace do
-    
-      @player = Player.new :y_pos => 360
-     
+      info "making player"
+      #@player = Player.new
+      
+      #i can't get const_get working, so...
+      case player_class
+      when :wizard
+        @player = Wizard.new
+      when :warrior
+        @player = Warrior.new
+      when :rogue
+        @player = Rogue.new
+      when :white_mage  
+        @player = WhiteMage.new
+      else
+        alert("OH NOEES!")
+      end
+      info "leaving creation"
       @board = []
      
      
@@ -32,8 +46,9 @@ class Dungeon
       @uni_image = image "static/unicorn.gif", :top=> 324, :left => 1188
       @player_top = 360
       @player_left = 0
-      @player_image = image "static/Warrior.gif", :top => 360, :left => 0
-
+      info "player: #{@player.image_path}"
+      @player_image = image @player.image_path, :top => 360, :left => 0
+      info "done making image"
       def move_player_up
         if @board[(@player_top + (@player_left/36)) - 36]=="static/sand_1.gif" 
           @player_top -= 36

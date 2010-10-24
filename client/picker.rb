@@ -4,21 +4,22 @@ class Picker
     
     append_to slot do
       para "what class do you want?", :left => 78
-      image "static/Warrior.gif", :top => 75, :left => 150
+      image "static/warrior_front.gif", :top => 75, :left => 150
       button "Warrior", :top => 50, :left => 125 do
-        Dungeon.new self
+        info "warrior"
+        Dungeon.new self, :warrior
       end
-      image "static/WMage_front.gif", :top => 175, :left => 150
+      image "static/wizard_front.gif", :top => 175, :left => 150
       button "Wizard", :top => 150, :left => 125 do
-        Dungeon.new self
+        Dungeon.new self, :wizard
       end
-      image "static/Warrior.gif", :top => 275, :left => 150
+      image "static/rogue_front.gif", :top => 275, :left => 150
       button "Rogue", :top => 250, :left => 125 do
-        Dungeon.new self
+        Dungeon.new self, :rogue
       end
-      image "static/WMage_front.gif", :top => 375, :left => 150
-      button "Priest", :top => 350, :left => 125 do
-        Dungeon.new self
+      image "static/white_mage_front.gif", :top => 375, :left => 150
+      button "White Mage", :top => 350, :left => 125 do
+        Dungeon.new self, :white_mage
       end
       
     end

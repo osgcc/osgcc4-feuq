@@ -5,16 +5,15 @@ end
 require "httparty"
 require 'json'
 require './picker'
-require './dungeon' 
-
+require '../shared/player'
+require './dungeon'
+require './battle' 
 
 window :height => 730, :width => 1296 do
-  
-  extend HasPicker
-    
+      
   @main_flow = flow :hidden => true do; end
 
-  init_picker @main_flow, @main_flow
+  Picker.new @main_flow
   
   def replace &blk
     self.clear do

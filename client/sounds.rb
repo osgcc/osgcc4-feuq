@@ -217,3 +217,17 @@ def attack_sound
     b.tune sound, "a"
     b.play
 end
+
+def special_sound
+  b = Bloops.new
+  sound = b.sound 0
+  sound.type = 0
+  sound.sustain = 0.12
+  sound.decay = 0.38
+  sound.freq = 0.27
+  sound.slide = 0.30
+  sound.square = 0.09
+  sound.repeat = 0.46
+  b.tune sound, "a"
+  b.play
+end

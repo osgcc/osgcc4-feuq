@@ -21,6 +21,7 @@ class Battle
         end
         
         button "Special", :top => 150, :left => 70 do
+          special_sound
           damage = i.specAtk
           @unicorn.hp -= damage
         end

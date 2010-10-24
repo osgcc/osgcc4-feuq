@@ -4,9 +4,16 @@ end
 
 require "httparty"
 require 'json'
+require 'bloops'
+require './sounds'
 require './picker'
+require './win'
 require '../shared/player'
 require '../shared/unicorn'
+require '../shared/warrior'
+require '../shared/wizard'
+require '../shared/white_mage'
+require '../shared/rogue'
 require './dungeon'
 require './battle' 
 

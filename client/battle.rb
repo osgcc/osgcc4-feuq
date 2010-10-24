@@ -1,26 +1,42 @@
 class Battle
   def initialize slot
     slot.replace do
+      
+      cheeky_drat
+      
       @unicorn = Unicorn.new
-      @combatant = [@player, @unicorn]  
+      @combatant = [@player]  
       @screen = []
       @screen << "static/combatbox.gif"
       @screen << "static/desert.gif"
       #432.times { @screen << "static/sand_1.gif" }
-      turn = true
+      
       @combatant.each do |i|
-        if turn
-          button "Attack", :top => 50, :left => 70 do
-            #alert "" + @player + " deals " + @player.str + " damage."
-          end
-          button "Special", :top => 150, :left => 70 do
+
+        button "Attack", :top => 50, :left => 70 do
+          attack_sound
+          damage = i.attack
+          alert "" + i.class.to_s + " deals " + damage.to_s + " damage."
+          @unicorn.hp -= damage
+          if @unicorn.hp <= 0
+            Win.new self, true
           end
         end
+        
+        button "Special", :top => 150, :left => 70 do
+          special_sound
+          damage = i.specAtk
+          @unicorn.hp -= damage
+          if @unicorn.hp <= 0
+            Win.new self, true
+          end
+        end
+        
       end
       @screen.each do |b| 
         image b
       end
-      @war_image = image "static/bigWarrior.gif", :top=> 365, :left => 188
+      @war_image = image @player.image_big, :top=> 365, :left => 188
       @health_image = image "static/health100.gif", :top=> 550, :left =>205
       @uni_image = image "static/bigUnicorn1.gif", :top => 330, :left => 890
       @health_image = image "static/health100.gif", :top=> 550, :left =>905
@@ -29,4 +45,7 @@ class Battle
 
     end
   end
+
+
+
 end

@@ -1,6 +1,4 @@
-require 'player'
-
-class Priest < Player
+class WhiteMage < Player
 
   def initialize(opts={})
     opts[:str] ||= 5
@@ -8,6 +6,7 @@ class Priest < Player
     opts[:arm] ||= 3
     opts[:mp] ||= 7
     opts[:int] ||= 10
+    opts[:image_base] = "static/white_mage_"    
     super(opts)
   end
 

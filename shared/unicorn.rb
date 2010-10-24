@@ -1,5 +1,3 @@
-#require 'player'
-
 class Unicorn < Player
 
   def initialize(opts={})
